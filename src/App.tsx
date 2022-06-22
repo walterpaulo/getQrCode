@@ -1,11 +1,12 @@
 import GeradorQR from "./pages/GeradorQR"
+import { Container } from "./styleApp"
 
 function App() {
 
   return (
-    <>
-    <GeradorQR />
-    </>
+    <Container>
+      <GeradorQR />
+    </Container>
   )
 }
 
