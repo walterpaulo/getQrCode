@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import QRCode from '../../components/QRCode';
+import QRCodes from '../../components/QRCodes';
 import { Box, Container, Form, Input, Title } from './style';
 
 function GeradorQR() {
@@ -25,7 +25,7 @@ function GeradorQR() {
           <Input {...url.length < 3 && 'disabled'} type="submit" value="Converter" />
         </Box>
       </Form>
-      <QRCode url={value} />
+      <QRCodes url={value} />
     </Container>
   );
 }

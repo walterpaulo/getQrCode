@@ -17,4 +17,10 @@ export const Container = styled.div`
     margin-top: 13px;
     margin-bottom: 22px;
     background-color: var(--text-color-primary);
+    svg{
+      width: 150px;
+      height: 150px;
+      border: 1px solid red;
+      margin-bottom: 20px;
+    }
   `
