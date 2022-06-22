@@ -24,7 +24,7 @@ export const Box = styled.div`
   `
 export const Input = styled.input`
   &[type=text]{
-    width: 100%;
+    width: 95%;
     height: 100%;
     padding: 10px 10px;
     background-color: var(--bg-color-secondary);
@@ -45,7 +45,8 @@ export const Input = styled.input`
     border-style: none;
     position: absolute;
     top:5px;
-    right: -15px;
+    right: 7px;
     cursor: pointer;
   }
+  
 `

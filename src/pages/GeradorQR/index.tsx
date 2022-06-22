@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
+import QRCode from '../../components/QRCode';
 import { Box, Container, Form, Input, Title } from './style';
 
 function GeradorQR() {
-  const [url, setUrl] = useState<string>()
+  const [url, setUrl] = useState<string>("")
+  const [value, setValue] = useState<string>()
 
   const handlerGetQR = (e: any) => {
     e.preventDefault()
-    console.log(url)
+    const countURL = url?.length
+    if ( countURL < 3 ) {
+      return
+    }
+    setValue(url)
     setUrl("")
   }
 
@@ -16,9 +22,10 @@ function GeradorQR() {
       <Form onClick={handlerGetQR}>
         <Box>
           <Input placeholder='Digite url' type="text" value={url} onChange={(e)=>{setUrl(e.target.value)}} />
-          <Input type="submit" value="Converter" />
+          <Input {...url.length < 3 && 'disabled'} type="submit" value="Converter" />
         </Box>
       </Form>
+      <QRCode url={value} />
     </Container>
   );
 }
