@@ -1,9 +1,10 @@
+import GeradorQR from "./pages/GeradorQR"
 
 function App() {
 
   return (
     <>
-    getQrCode
+    <GeradorQR />
     </>
   )
 }

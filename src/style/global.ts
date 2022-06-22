@@ -12,6 +12,7 @@ export default createGlobalStyle`
   margin: 0;
   padding: 0;
   background-color: var(--bg-color-primaray);
-  color: var(--text-color-primary)
+  color: var(--text-color-primary);
+  font-family: 'Inter', sans-serif;  
 }
 `
