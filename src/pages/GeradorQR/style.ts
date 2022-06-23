@@ -6,11 +6,15 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  p{
+    margin: 40px 0;
+  }
 `
 export const Title = styled.h2`
   text-align: center;
   font-size: 20px;
-  margin:100px 0 85px 0;
+  margin:30px 0 40px 0;
   font-weight: 800;
 `
 export const Form = styled.form`

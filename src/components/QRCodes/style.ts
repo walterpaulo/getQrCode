@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 400px;
   min-height: 200px;
   margin-top: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   background-color: var(--bg-color-secondary);
   border-radius: 5px;
   display: flex;
@@ -26,10 +26,11 @@ export const Container = styled.div`
 export const TextUrl = styled.div`
   width: 90%;
     display: inline-block;
+    text-align: center;
     background-color: var(--bg-color-secondary);
     /* white-space: wrap; */
     overflow: hidden;
     text-overflow: ellipsis;
     direction: ltr;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 `

@@ -5,14 +5,17 @@ import { Box, Container, Form, Input, Title } from './style';
 function GeradorQR() {
   const [url, setUrl] = useState<string>("")
   const [value, setValue] = useState<string>()
+  const [loading, setLoading] = useState(false)
 
   const handlerGetQR = (e: any) => {
     e.preventDefault()
     const countURL = url?.length
+    countURL > 3 && setLoading(true)
     if ( countURL < 3 ) {
       return
     }
     setValue(url)
+    setLoading(false)
     setUrl("")
   }
 
@@ -25,7 +28,8 @@ function GeradorQR() {
           <Input {...url.length < 3 && 'disabled'} type="submit" value="Converter" />
         </Box>
       </Form>
-      <QRCodes url={value} />
+      { loading && <p>Carregando...</p>}
+      { value && <QRCodes url={value} />}
     </Container>
   );
 }
