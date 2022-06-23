@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import QRCodes from '../../components/QRCodes';
+import { LinkContext } from '../../contexts/LinkContext';
 import { Box, Container, Form, Input, Title } from './style';
 
 function GeradorQR() {
   const [url, setUrl] = useState<string>("")
   const [value, setValue] = useState<string>()
   const [loading, setLoading] = useState(false)
+  
+  const { link, setLink } = useContext(LinkContext)
+
 
   const handlerGetQR = (e: any) => {
     e.preventDefault()
@@ -15,6 +19,7 @@ function GeradorQR() {
       return
     }
     setValue(url)
+    setLink(url)
     setLoading(false)
     setUrl("")
   }
@@ -29,7 +34,7 @@ function GeradorQR() {
         </Box>
       </Form>
       { loading && <p>Carregando...</p>}
-      { value && <QRCodes url={value} />}
+      { value && <QRCodes url={link} />}
     </Container>
   );
 }

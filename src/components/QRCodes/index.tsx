@@ -42,7 +42,7 @@ const QRCodes:React.FC<TProps> = ({url})=> {
 
   return (
     <Container id='IImage'>
-        <CaptureElement  />
+        <CaptureElement element="IImage" />
         <Image onClick={(e)=>{console.log(e)}}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox={viewBox} shapeRendering="crispEdges">
           <path fill="#ffffff" d="M0 0h100v100H0z"/>

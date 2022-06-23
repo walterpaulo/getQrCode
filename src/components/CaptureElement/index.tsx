@@ -1,18 +1,24 @@
 import html2canvas from 'html2canvas';
-import React from 'react';
+import React, { useContext } from 'react';
+import { LinkContext } from '../../contexts/LinkContext';
 import { BoxSVG} from './style';
 
 type Props = {
-  element?: HTMLElement
+  element: string;
 };
 
-const CaptureElement:React.FC<Props> = ({element}) => {
+const CaptureElement:React.FC<Props> = (prop) => {
+
+  const { link } = useContext(LinkContext)
+
+
   const captureElement = async () => {
-    const element = document.getElementById("IImage");
+    // const elements = prop
+    const element = document.getElementById(prop.element);
     html2canvas(element, { useCORS: true }).then(canvas => {
       let a = document.createElement("a");
       document.body.appendChild(a);
-      a.download = "codeqr.png";
+      a.download = link;
       a.href = canvas.toDataURL();
       a.click();
     });
