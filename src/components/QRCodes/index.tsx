@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Image, TextUrl } from './style';
 import QRCode from 'qrcode'
+import html2canvas from 'html2canvas';
+import CaptureElement from '../CaptureElement';
 
 type TProps = {
     url?: string;
@@ -39,8 +41,9 @@ const QRCodes:React.FC<TProps> = ({url})=> {
  };
 
   return (
-    <Container>
-        <Image>
+    <Container id='IImage'>
+        <CaptureElement  />
+        <Image onClick={(e)=>{console.log(e)}}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox={viewBox} shapeRendering="crispEdges">
           <path fill="#ffffff" d="M0 0h100v100H0z"/>
           <path stroke="#000000" d={codeQR}/>
