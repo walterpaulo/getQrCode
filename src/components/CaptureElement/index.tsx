@@ -11,17 +11,17 @@ const CaptureElement:React.FC<Props> = (prop) => {
 
   const { link } = useContext(LinkContext)
 
-
   const captureElement = async () => {
-    // const elements = prop
     const element = document.getElementById(prop.element);
-    html2canvas(element, { useCORS: true }).then(canvas => {
-      let a = document.createElement("a");
-      document.body.appendChild(a);
-      a.download = link;
-      a.href = canvas.toDataURL();
-      a.click();
-    });
+    if (element){
+      html2canvas(element, { useCORS: true }).then(canvas => {
+        let a = document.createElement("a");
+        document.body.appendChild(a);
+        a.download = link;
+        a.href = canvas.toDataURL();
+        a.click();
+      });
+    }
     }
 
   return (

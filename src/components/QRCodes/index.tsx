@@ -20,13 +20,13 @@ const QRCodes:React.FC<TProps> = ({url})=> {
           }
 
         QRCode.toString(url, (err: any, data: any) => {
-          const html = ConvertStringToHTML(data, 'image/svg+xml').activeElement?.children[0]
+          const html: any = ConvertStringToHTML(data).activeElement?.children[0]
           setCodeQr(html.nextElementSibling.attributes[1].nodeValue)
           setViewBox(html.nearestViewportElement.attributes[1].nodeValue)
         })
 
       } catch (err) {
-        console.error(err)
+        console.error("Ops! Error!")
       }
     }
     generateQR(url || "")
@@ -43,7 +43,7 @@ const QRCodes:React.FC<TProps> = ({url})=> {
   return (
     <Container id='IImage'>
         <CaptureElement element="IImage" />
-        <Image onClick={(e)=>{console.log(e)}}>
+        <Image>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox={viewBox} shapeRendering="crispEdges">
           <path fill="#ffffff" d="M0 0h100v100H0z"/>
           <path stroke="#000000" d={codeQR}/>

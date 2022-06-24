@@ -4,7 +4,7 @@ import { LinkContext } from '../../contexts/LinkContext';
 import { Box, Container, Form, Input, Title } from './style';
 
 function GeradorQR() {
-  const [url, setUrl] = useState<string>("")
+  const [url, setUrl] = useState("")
   const [value, setValue] = useState<string>()
   const [loading, setLoading] = useState(false)
   
@@ -23,6 +23,10 @@ function GeradorQR() {
     setLoading(false)
     setUrl("")
   }
+  const validar = () => {
+    const isCount = url.length < 3
+    return
+  }
 
   return (
     <Container>
@@ -30,7 +34,7 @@ function GeradorQR() {
       <Form onClick={handlerGetQR}>
         <Box>
           <Input placeholder='Digite url' type="text" value={url} onChange={(e)=>{setUrl(e.target.value)}} />
-          <Input {...url.length < 3 && 'disabled'} type="submit" value="Converter" />
+          <Input type="submit" value="Converter" />
         </Box>
       </Form>
       { loading && <p>Carregando...</p>}
