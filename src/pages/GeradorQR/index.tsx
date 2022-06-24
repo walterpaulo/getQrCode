@@ -10,18 +10,33 @@ function GeradorQR() {
   
   const { setLink } = useContext(LinkContext)
 
+  function isValidHttpUrl(inputUrl: string) {
+    const expression =/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+    const regex = new RegExp(expression);
+    if (inputUrl.match(regex)) {
+      return true
+    } else {
+      return false
+    }
+  }
+  
   const handlerGetQR = (e: any) => {
     e.preventDefault()
+    
     const countURL = url?.length
     countURL > 3 && setLoading(true)
-    if ( countURL < 3 ) {
-      return
+    
+    if(isValidHttpUrl(url)){
+      setValue(url)
+      setLink(url)
+      setLoading(false)
+      setUrl("")
+    }else{
+      setValue('')
     }
-    setValue(url)
-    setLink(url)
-    setLoading(false)
-    setUrl("")
   }
+
+
 
   return (
     <Container>
