@@ -8,8 +8,12 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
-  p{
+  /* p{
     margin: 40px 0;
+  } */
+
+  @media (max-width: 420px) {
+    width: 100vw;
   }
 `
 export const Title = styled.h2`
@@ -24,7 +28,7 @@ export const Form = styled.form`
 `
 export const Box = styled.div`
   position: relative;
-  max-width: 400px;
+  width: 400px;
   height: 20px;
 
   @media (max-width: 420px) {

@@ -14,6 +14,7 @@ export const Container = styled.div`
 
   @media (max-width: 420px) {
     margin-top: 95px;
+    width: 100vw;
     }
   `
   export const Image = styled.div`
