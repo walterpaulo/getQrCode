@@ -24,8 +24,12 @@ export const Form = styled.form`
 `
 export const Box = styled.div`
   position: relative;
-  width: 400px;
+  max-width: 400px;
   height: 20px;
+
+  @media (max-width: 420px) {
+    width: 100vw;
+    }
   `
 export const Input = styled.input`
   &[type=text]{
@@ -35,6 +39,14 @@ export const Input = styled.input`
     background-color: var(--bg-color-secondary);
     border-style: none;
     border-radius: 5px;
+    
+    @media (max-width: 420px) {
+    width: 100vw;
+    max-width: 88vw;
+    height: 100%;
+    padding: 10px;
+    /* margin: 0 3vw; */
+    }
   }
   &[type=submit]{
     width: 113px;
@@ -52,6 +64,13 @@ export const Input = styled.input`
     top:5px;
     right: 7px;
     cursor: pointer;
+
+    @media (max-width: 420px) {
+    width: 94vw;
+    height: 40px;
+    top: 52px;
+    left: 0;
+    margin: 3vw;
+    }
   }
-  
 `

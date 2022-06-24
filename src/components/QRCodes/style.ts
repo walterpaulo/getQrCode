@@ -11,6 +11,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 420px) {
+    margin-top: 95px;
+    }
   `
   export const Image = styled.div`
     margin-top: 13px;
