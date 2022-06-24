@@ -1,57 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Container, Image, TextUrl } from './style';
-import QRCode from 'qrcode'
-import html2canvas from 'html2canvas';
+import QRCode from 'qrcode.react'
 import CaptureElement from '../CaptureElement';
+import { LinkContext } from '../../contexts/LinkContext';
 
-type TProps = {
-    url?: string;
-}
-
-const QRCodes:React.FC<TProps> = ({url})=> {
-  const [codeQR, setCodeQr] = useState<any>()
-  const [viewBox, setViewBox] = useState<any>()
-  
-  useEffect(()=>{
-    const generateQR = async (url: string ) => {
-      try {
-          if( url.length < 1){
-            return
-          }
-
-        QRCode.toString(url, (err: any, data: any) => {
-          const html: any = ConvertStringToHTML(data).activeElement?.children[0]
-          setCodeQr(html.nextElementSibling.attributes[1].nodeValue)
-          setViewBox(html.nearestViewportElement.attributes[1].nodeValue)
-        })
-
-      } catch (err) {
-        console.error("Ops! Error!")
-      }
-    }
-    generateQR(url || "")
-  })
-
-  const ConvertStringToHTML = function (str: string) {
-    const parser = new DOMParser();
-
-    const svgString = str;
-    const doc = parser.parseFromString(svgString, "image/svg+xml");
-    return doc
- };
+const QRCodes = ()=> {
+  const { link } = useContext(LinkContext)
 
   return (
     <Container id='IImage'>
-        <CaptureElement element="IImage" />
-        <Image>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox={viewBox} shapeRendering="crispEdges">
-          <path fill="#ffffff" d="M0 0h100v100H0z"/>
-          <path stroke="#000000" d={codeQR}/>
-        </svg>
-        </Image>
-        <TextUrl>
-        {url}
-        </TextUrl>
+      <CaptureElement element="IImage" />
+      <Image>
+      <QRCode
+        value={link}
+        size={290}
+        level={"H"}
+        includeMargin={true}
+    />
+      </Image>
+      <TextUrl>
+      {link}
+      </TextUrl>
     </Container>
   );
 }

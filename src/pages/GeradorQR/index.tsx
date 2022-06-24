@@ -8,8 +8,7 @@ function GeradorQR() {
   const [value, setValue] = useState<string>()
   const [loading, setLoading] = useState(false)
   
-  const { link, setLink } = useContext(LinkContext)
-
+  const { setLink } = useContext(LinkContext)
 
   const handlerGetQR = (e: any) => {
     e.preventDefault()
@@ -23,10 +22,6 @@ function GeradorQR() {
     setLoading(false)
     setUrl("")
   }
-  const validar = () => {
-    const isCount = url.length < 3
-    return
-  }
 
   return (
     <Container>
@@ -38,7 +33,7 @@ function GeradorQR() {
         </Box>
       </Form>
       { loading && <p>Carregando...</p>}
-      { value && <QRCodes url={link} />}
+      { value && <QRCodes />}
     </Container>
   );
 }
