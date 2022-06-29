@@ -1,5 +1,5 @@
-import Footer from "./components/Footer"
-import { LinkProvider } from "./contexts/LinkContext"
+import Footer from "./shared/components/Footer"
+import { LinkProvider } from "./shared/contexts/LinkContext"
 import GeradorQR from "./pages/GeradorQR"
 import { Container } from "./styleApp"
 

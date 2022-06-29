@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
-import QRCodes from '../../components/QRCodes';
-import { LinkContext } from '../../contexts/LinkContext';
+import QRCodes from '../../shared/components/QRCodes';
+import { LinkContext } from '../../shared/contexts/LinkContext';
 import { Box, Container, Form, Input, Title } from './style';
 
 function GeradorQR() {
@@ -35,8 +35,6 @@ function GeradorQR() {
       setValue('')
     }
   }
-
-
 
   return (
     <Container>
