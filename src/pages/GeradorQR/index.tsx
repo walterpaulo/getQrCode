@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import {ButtonColor} from '../../shared/components/ButtonColor';
 import QRCodes from '../../shared/components/QRCodes';
 import { LinkContext } from '../../shared/contexts/LinkContext';
 import { Box, Container, Form, Input, Title } from './style';
@@ -39,6 +40,7 @@ function GeradorQR() {
   return (
     <Container>
       <Title>GetQrCode+</Title>
+      <ButtonColor />
       <Form onClick={handlerGetQR}>
         <Box>
           <Input placeholder='Digite url' type="text" value={url} onChange={(e)=>{setUrl(e.target.value)}} />

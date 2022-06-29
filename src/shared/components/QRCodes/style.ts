@@ -18,6 +18,8 @@ export const Container = styled.div`
     }
   `
   export const Image = styled.div`
+    width: 150px;
+    height: 150px;
     margin-top: 13px;
     margin-bottom: 22px;
     background-color: var(--text-color-primary);

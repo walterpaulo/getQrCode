@@ -25,8 +25,7 @@ const CaptureElement:React.FC<Props> = (prop) => {
     }
 
   return (
-    <BoxSVG onClick={captureElement}>
-    </BoxSVG>
+    <BoxSVG onClick={captureElement} />
     );
 }
 
